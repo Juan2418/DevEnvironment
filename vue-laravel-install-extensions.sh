@@ -34,3 +34,4 @@ code --install-extension vscodevim.vim
 code --install-extension xabikos.JavaScriptSnippets
 code --install-extension xaver.clang-format
 code --install-extension ypresto.vscode-intelli-refactor
+sudo apt-get install fonts-cascadia-code
