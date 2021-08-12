@@ -1,0 +1,62 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.191.0/containers/javascript-node
+{
+  "name": "Node.js",
+  "build": {
+    "dockerfile": "Dockerfile",
+    // Update 'VARIANT' to pick a Node version: 12, 14, 16
+    "args": { "VARIANT": "16" }
+  },
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {},
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "amiralizadeh9480.laravel-extra-intellisense",
+    "bmewburn.vscode-intelephense-client",
+    "bradlc.vscode-tailwindcss",
+    "christian-kohler.path-intellisense",
+    "codingyu.laravel-goto-view",
+    "CoenraadS.bracket-pair-colorizer-2",
+    "dariofuzinato.vue-peek",
+    "daylerees.rainglow",
+    "dbaeumer.vscode-eslint",
+    "ecmel.vscode-html-css",
+    "EditorConfig.EditorConfig",
+    "esbenp.prettier-vscode",
+    "felixfbecker.php-debug",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "GitHub.copilot",
+    "hwencc.html-tag-wrapper",
+    "kiteco.kite",
+    "mikestead.dotenv",
+    "octref.vetur",
+    "onecentlin.laravel-blade",
+    "onecentlin.laravel-extension-pack",
+    "onecentlin.laravel5-snippets",
+    "peaceshi.syntax-highlight",
+    "PKief.material-icon-theme",
+    "pranaygp.vscode-css-peek",
+    "reloadedextensions.reloaded-themes",
+    "ryannaddy.laravel-artisan",
+    "sdras.vue-vscode-snippets",
+    "SonarSource.sonarlint-vscode",
+    "stef-k.laravel-goto-controller",
+    "vscodevim.vim",
+    "xabikos.JavaScriptSnippets",
+    "xaver.clang-format",
+    "ypresto.vscode-intelli-refactor"
+  ],
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // "postCreateCommand": "yarn install",
+
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "node"
+}
