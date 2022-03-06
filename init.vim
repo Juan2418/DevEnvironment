@@ -1,3 +1,6 @@
+" Tabs as spaces
+set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
+
 " Line Numbers
 set number relativenumber
 
