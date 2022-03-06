@@ -9,6 +9,6 @@ $ ./vue-laravel-install-extensions.sh
 ```
 ## Neovim
 
-A config for neovim is included in this repo. For it to work, cim-plug has to be installed along with the corresponding requirements for each individual plugin.
+A config for neovim is included in this repo. For it to work, vim-plug has to be installed along with the corresponding requirements for each individual plugin.
 
 The plugins used are at the begining of the init.vim file.
