@@ -65,6 +65,19 @@ Plug 'stephpy/vim-php-cs-fixer'
 " Php Refactoring
 Plug 'adoy/vim-php-refactoring-toolbox'
 
+" Php autocomplete
+Plug 'ncm2/ncm2' 
+Plug 'roxma/nvim-yarp'
+
+" NOTE: you need to install completion sources to get completions. Check
+" our wiki page for a list of sources: https://github.com/ncm2/ncm2/wiki
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
+
+" phpactor
+Plug 'phpactor/phpactor' ,  {'do': 'composer install', 'for': 'php'}
+Plug 'phpactor/ncm2-phpactor'
+
 call plug#end()
 
 " Find files using Telescope command-line sugar.
@@ -193,20 +206,13 @@ vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
 vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
+vim.opt.list = true
 
 require("indent_blankline").setup {
     -- for example, context is off by default, use this to turn it on
     show_current_context = true,
     show_current_context_start = true,
     space_char_blankline = " ",
-    char_highlight_list = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-        "IndentBlanklineIndent3",
-        "IndentBlanklineIndent4",
-        "IndentBlanklineIndent5",
-        "IndentBlanklineIndent6",
-    },
 }
 END
 
@@ -605,4 +611,9 @@ autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 " nnoremap <unique> <Leader>cog :call PhpCreateGetters()<CR>
 " nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
 "
+" ncm2 config
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+
+
 
