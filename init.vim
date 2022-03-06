@@ -14,7 +14,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 
-
 noremap <C-O> <C-W>k<C-W>_
 
 noremap <C-P> <C-W>j<C-W>_
@@ -56,6 +55,15 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 " Comments toggle plugin 
 Plug 'preservim/nerdcommenter'
+
+" Php Syntax Highlighting
+Plug 'StanAngeloff/php.vim'
+
+" Php code fixer support
+Plug 'stephpy/vim-php-cs-fixer'
+
+" Php Refactoring
+Plug 'adoy/vim-php-refactoring-toolbox'
 
 call plug#end()
 
@@ -109,8 +117,8 @@ require('lualine').setup {
   options = {
     icons_enabled = true,
     theme = 'auto',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
+    component_separators = { left = 'ÓÇ±', right = 'ÓÇ≥'},
+    section_separators = { left = 'ÓÇ∞', right = 'ÓÇ≤'},
     disabled_filetypes = {},
     always_divide_middle = true,
   },
@@ -399,7 +407,7 @@ let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help file
 let g:nvim_tree_add_trailing = 1 "0 by default, append a trailing slash to folder names
 let g:nvim_tree_group_empty = 1 " 0 by default, compact folders that only contain a single folder into one node in the file tree
 let g:nvim_tree_icon_padding = ' ' "one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
-let g:nvim_tree_symlink_arrow = ' >> ' " defaults to ' ➛ '. used as a separator between symlinks' source and target.
+let g:nvim_tree_symlink_arrow = ' >> ' " defaults to ' ‚ûõ '. used as a separator between symlinks' source and target.
 let g:nvim_tree_respect_buf_cwd = 1 "0 by default, will change cwd of nvim-tree to that of new buffer's when opening nvim-tree.
 let g:nvim_tree_create_in_closed_folder = 1 "0 by default, When creating files, sets the path of a file when cursor is on a closed folder to the parent folder when 0, and inside the folder when 1.
 let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1, 'index.*': 1 } " List of filenames that gets highlighted with NvimTreeSpecialFile
@@ -418,26 +426,26 @@ let g:nvim_tree_show_icons = {
 " default will show icon by default if no icon is provided
 " default shows no icon by default
 let g:nvim_tree_icons = {
-    \ 'default': '',
-    \ 'symlink': '',
+    \ 'default': 'Óòí',
+    \ 'symlink': 'ÔíÅ',
     \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★",
-    \   'deleted': "",
-    \   'ignored': "◌"
+    \   'unstaged': "‚úó",
+    \   'staged': "‚úì",
+    \   'unmerged': "Óúß",
+    \   'renamed': "‚ûú",
+    \   'untracked': "‚òÖ",
+    \   'deleted': "Ôëò",
+    \   'ignored': "‚óå"
     \   },
     \ 'folder': {
-    \   'arrow_open': "",
-    \   'arrow_closed': "",
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "",
-    \   'symlink_open': "",
+    \   'arrow_open': "Ôëº",
+    \   'arrow_closed': "Ôë†",
+    \   'default': "Óóø",
+    \   'open': "Óóæ",
+    \   'empty': "ÔÑî",
+    \   'empty_open': "ÔÑï",
+    \   'symlink': "ÔíÇ",
+    \   'symlink_open': "Óóæ",
     \   }
     \ }
 
@@ -479,10 +487,10 @@ require'nvim-tree'.setup {
   diagnostics = {
     enable = false,
     icons = {
-      hint = "",
-      info = "",
-      warning = "",
-      error = "",
+      hint = "ÔÅ™",
+      info = "ÔÅö",
+      warning = "ÔÅ±",
+      error = "ÔÅó",
     }
   },
   update_focused_file = {
@@ -575,4 +583,26 @@ let g:NERDTrimTrailingWhitespace = 1
 let g:NERDToggleCheckAllLines = 1
 
 nnoremap <C-_> <Leader>c<space>
+
+" Php Code Fixer Config
+autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
+
+" Vim-php-refactoring-toolbox config
+
+" Defaults:
+"
+" nnoremap <unique> <Leader>rlv :call PhpRenameLocalVariable()<CR>
+" nnoremap <unique> <Leader>rcv :call PhpRenameClassVariable()<CR>
+" nnoremap <unique> <Leader>rm :call PhpRenameMethod()<CR>
+" nnoremap <unique> <Leader>eu :call PhpExtractUse()<CR>
+" vnoremap <unique> <Leader>ec :call PhpExtractConst()<CR>
+" nnoremap <unique> <Leader>ep :call PhpExtractClassProperty()<CR>
+" vnoremap <unique> <Leader>em :call PhpExtractMethod()<CR>
+" nnoremap <unique> <Leader>np :call PhpCreateProperty()<CR>
+" nnoremap <unique> <Leader>du :call PhpDetectUnusedUseStatements()<CR>
+" vnoremap <unique> <Leader>== :call PhpAlignAssigns()<CR>
+" nnoremap <unique> <Leader>sg :call PhpCreateSettersAndGetters()<CR>
+" nnoremap <unique> <Leader>cog :call PhpCreateGetters()<CR>
+" nnoremap <unique> <Leader>da :call PhpDocAll()<CR>
+"
 
