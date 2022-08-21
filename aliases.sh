@@ -5,9 +5,9 @@ alias sail="./vendor/bin/sail"
 ## Composer
 function composer(){
   docker run --rm \
-    -u "$(id -u):$(id -g)" \
-    -v $(pwd):/var/www/html \
-    -w /var/www/html \
+    -u "$(id -u):$(id -g)" \      # User
+    -v $(pwd):/var/www/html \     # Volume
+    -w /var/www/html \            # Working Directory
     laravelsail/php81-composer:latest \
     composer $@
 }
